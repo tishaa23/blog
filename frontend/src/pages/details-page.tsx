@@ -1,17 +1,18 @@
+import React from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import navigateBackWhiteIcon from '@/assets/svg/navigate-back-white.svg';
 import arrowRightWhiteIcon from '@/assets/svg/arrow-right-white.svg';
 import arrowRightBlackIcon from '@/assets/svg/arrow-right-black.svg';
-import formatPostTime from '@/utils/format-post-time';
-import CategoryPill from '@/components/category-pill';
+import formatPostTime from '../utils/format-post-time';
+import CategoryPill from '../components/category-pill';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Post from '@/types/post-type';
-import axiosInstance from '@/helpers/axios-instance';
-import { PostCardSkeleton } from '@/components/skeletons/post-card-skeleton';
-import PostCard from '@/components/post-card';
-import PostMobileViewComponent from '@/components/PostMobileViewComponent';
-import { PostMobileViewCardSkeleton } from '@/components/PostMobileViewCardSkeleton';
+import Post from '../types/post-type';
+import axiosInstance from '../helpers/axios-instance';
+import { PostCardSkeleton } from '../components/skeletons/post-card-skeleton';
+import PostCard from '../components/post-card';
+import PostMobileViewComponent from '../components/PostMobileViewComponent';
+import { PostMobileViewCardSkeleton } from '../components/PostMobileViewCardSkeleton';
 
 export default function DetailsPage() {
   const { state } = useLocation();

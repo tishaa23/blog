@@ -1,0 +1,72 @@
+
+services:
+  
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+      - redis
+    environment:  
+      - MONGODB_URI=mongodb://mongodb:27017/wanderlust
+      - REDIS_URL=redis://redis:6379
+    networks:
+      - custom_network
+    volumes:
+      - ./backend:/app
+  
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - custom_network
+    volumes:
+      - ./frontend:/app
+    env_file:
+      - ./frontend/.env
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - custom_network
+
+  mongo-seed:
+    image: mongo:latest
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend/data:/data
+      # - ./wait-for-it.sh:/wait-for-it.sh
+    entrypoint: ["sh", "-c", "mongoimport --host mongodb --db wanderlust --collection posts --file /data/sample_posts.json --jsonArray"]
+    networks:
+      - custom_network
+
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6378:6379" 
+    networks:
+      - custom_network
+    volumes:
+      - redis-data:/data
+
+networks:
+  custom_network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+  redis-data:

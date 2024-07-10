@@ -1,16 +1,17 @@
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // import AddGoogleIcon from '@/assets/svg/google-color-icon.svg';
 // import AddGithubIcon from '@/assets/svg/github-icon.svg';
 import { useForm } from 'react-hook-form';
 import type { FieldValues } from 'react-hook-form';
-import { TSignUpSchema, signUpSchema } from '@/lib/types';
+import { TSignUpSchema, signUpSchema } from '../lib/types';
 import 'react-toastify/dist/ReactToastify.css';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'react-toastify';
 import { AxiosError, isAxiosError } from 'axios';
-import axiosInstance from '@/helpers/axios-instance';
-import userState from '@/utils/user-state';
-import ThemeToggle from '@/components/theme-toggle-button';
+import axiosInstance from '../helpers/axios-instance';
+import userState from '../utils/user-state';
+import ThemeToggle from '../components/theme-toggle-button';
 import { useState } from 'react';
 import EyeIcon from '@/assets/svg/eye.svg';
 import EyeOffIcon from '@/assets/svg/eye-off.svg';
@@ -67,7 +68,7 @@ function Signup() {
     <div className="flex-grow cursor-default bg-white py-4 dark:bg-dark-card">
       <div className="m-4 mb-4 flex justify-center">
         <div className="flex w-full items-center justify-center">
-          <h2 className="text-center text-lg font-bold text-black dark:text-dark-primary w-2/4 pl-2 sm:text-xl md:w-3/4 md:pl-48">
+          <h2 className="w-2/4 pl-2 text-center text-lg font-bold text-black dark:text-dark-primary sm:text-xl md:w-3/4 md:pl-48">
             Sign up to WanderLust
           </h2>
           <div className="flex items-center justify-end px-4 sm:px-20">

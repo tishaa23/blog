@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
-import BlogFeed from '@/components/blog-feed';
-import PostCard from '@/components/post-card';
-import Post from '@/types/post-type';
-import { PostCardSkeleton } from '@/components/skeletons/post-card-skeleton';
-import Header from '@/layouts/header-layout';
-import axiosInstance from '@/helpers/axios-instance';
+import React, { useEffect, useState } from 'react';
+import BlogFeed from '../components/blog-feed';
+import PostCard from '../components/post-card';
+import Post from '../types/post-type';
+import { PostCardSkeleton } from '../components/skeletons/post-card-skeleton';
+import Header from '../layouts/header-layout';
+import axiosInstance from '../helpers/axios-instance';
+//import React from 'react';
 function HomePage() {
   const [posts, setPosts] = useState<Post[]>([]);
 

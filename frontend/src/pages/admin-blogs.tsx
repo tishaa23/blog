@@ -1,11 +1,12 @@
-import PenIcon from '@/assets/svg/pen-icon';
-import TrasnIcon from '@/assets/svg/trash-icon';
-import axiosInstance from '@/helpers/axios-instance';
-import formatPostTime from '@/utils/format-post-time';
+import React from 'react';
+import PenIcon from '../assets/svg/pen-icon';
+import TrasnIcon from '../assets/svg/trash-icon';
+import axiosInstance from '../helpers/axios-instance';
+import formatPostTime from '../utils/format-post-time';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Post from '@/types/post-type';
+import Post from '../types/post-type';
 
 const AdminBlogs = () => {
   const [posts, setPosts] = useState<Post[]>([]);

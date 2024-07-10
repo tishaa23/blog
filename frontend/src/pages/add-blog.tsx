@@ -1,17 +1,18 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import navigateBackBlackIcon from '@/assets/svg/navigate-back-black.svg';
 import navigateBackWhiteIcon from '@/assets/svg/navigate-back-white.svg';
-import ModalComponent from '@/components/modal';
-import CategoryPill from '@/components/category-pill';
-import { categories } from '@/utils/category-colors';
-import userState from '@/utils/user-state';
-import axiosInstance from '@/helpers/axios-instance';
+import ModalComponent from '../components/modal';
+import CategoryPill from '../components/category-pill';
+import { categories } from '../utils/category-colors';
+import userState from '../utils/user-state';
+import axiosInstance from '../helpers/axios-instance';
 import { AxiosError, isAxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
-import { TAddBlogScheme, addBlogSchema } from '@/lib/types';
+import { TAddBlogScheme, addBlogSchema } from '../lib/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 function AddBlog() {
@@ -206,7 +207,7 @@ function AddBlog() {
             <div className="mb-1 flex justify-between gap-2 sm:gap-4">
               <input
                 {...register('imageLink')}
-                type="url"
+                type="file"
                 id="imagelink"
                 name="imageLink"
                 placeholder="https://&hellip;"

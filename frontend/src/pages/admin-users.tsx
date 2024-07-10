@@ -1,8 +1,9 @@
-import axiosInstance from '@/helpers/axios-instance';
+import React from 'react';
+import axiosInstance from '../helpers/axios-instance';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Role } from '@/types/role-type';
+import { Role } from '../types/role-type';
 
 type User = {
   _id: string;

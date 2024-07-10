@@ -1,8 +1,10 @@
+import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadFull } from 'tsparticles';
-import ThemeToggle from '@/components/theme-toggle-button';
+import ThemeToggle from '../components/theme-toggle-button';
 
 function NotFound() {
   const [isDarkTheme, setIsDarkTheme] = useState<boolean | null>(true);
