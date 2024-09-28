@@ -2,6 +2,7 @@
 services:
   
   backend:
+    image: bkimage
     build:
       context: ./backend
       dockerfile: Dockerfile
